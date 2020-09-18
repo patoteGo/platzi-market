@@ -1,12 +1,8 @@
 package com.platzi.platzimarket.persistance.entity;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "categorias")
@@ -22,6 +18,9 @@ public class Categoria {
 
     @Column(name = "estado")
     private Boolean active;
+
+    @OneToMany(mappedBy = "categoria")
+    private List<Producto> productos;
 
     public Integer getId() {
         return id;
